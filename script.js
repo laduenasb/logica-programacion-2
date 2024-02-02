@@ -4,9 +4,19 @@ let grados_celsius = document.getElementById("celsius");
 let grados_fahrenheit = document.getElementById("fahrenheit");
 let grados_kelvin = document.getElementById("kelvin");
 
-// Se pide al usuario el valor de la temperatura en grados celcius
+// Se pide al usuario el valor de la temperatura en grados celcius y se verifica que sea del tipo numero, caso contrario envia un error por pantalla
+let temperatura;
+do {
+	temperatura = prompt("Temperatura en celsius: ");
+	// Si lo ingresado no es un numero muestra la alerta
+	console.log(isNaN(temperatura));
+	if(isNaN(temperatura)){
+		alert("Lo que escribiste no es un numero intenta nuevamente")
+	}
+} while(isNaN(temperatura));
 
-let temperatura = parseFloat(prompt("Temperatura en celsius: "));
+
+temperatura=parseFloat(temperatura);
 
 // Se muestra el valor de la temperatura en la página
 grados_celsius.innerHTML=`Temperatura en grados celsius: ${temperatura} °C`;
